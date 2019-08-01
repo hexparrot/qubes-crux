@@ -1,0 +1,29 @@
+# Description: Qubes component: qubes-core-agent-linux
+# URL: https://qubes-os.org
+# Maintainer: William Dizon, wdchromium at gmail dot com 
+# Depends on: pandoc
+
+name=qubes-core-agent-linux
+version=R4.0.1
+release=1
+source=(https://github.com/QubesOS/qubes-core-agent-linux/archive/$version.tar.gz)
+
+build() {
+	cd $name-$version
+	export BACKEND_VMM=xen
+	make -C qubes-rpc
+	make -C qrexec
+	make -C misc
+	make DESTDIR=$PKG -C qrexec install
+
+	make DESTDIR=$PKG install-init
+	make DESTDIR=$PKG install-common SYSLIBDIR=/lib LIBDIR=/usr/lib SBINDIR=/usr/sbin DIST=lfs
+	make DESTDIR=$PKG install-sysvinit SYSLIBDIR=/lib LIBDIR=/usr/lib SBINDIR=/usr/sbin
+	make DESTDIR=$PKG install-networking SYSLIBDIR=/lib LIBDIR=/usr/lib
+
+	mv $PKG/etc/qubes/rpc-config $PKG/etc/qubes/rpc-config.bak
+	ln -s ../qubes-rpc $PKG/etc/qubes/rpc-config
+
+	sed -i 's#/dev/mapper/dmroot#/dev/xvda1#' $PKG/etc/fstab
+	patch -Np0 -i $PKGMK_SOURCE_DIR/setup-ip.patch $PKG/usr/lib/qubes/setup-ip
+}
