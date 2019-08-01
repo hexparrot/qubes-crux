@@ -1,0 +1,20 @@
+# Description: Qubes component: qubes-linux-utils
+# URL: https://qubes-os.org
+# Maintainer: William Dizon, wdchromium at gmail dot com 
+# Depends on:
+
+name=qubes-linux-utils
+version=R4.0
+release=1
+source=(https://github.com/QubesOS/qubes-linux-utils/archive/$version.tar.gz)
+
+build() {
+	cd $name-$version
+	export BACKEND_VMM=xen
+	make all
+	make DESTDIR=$PKG -C udev SYSLIBDIR=/lib SCRIPTSDIR=/usr/lib/qubes install
+	make DESTDIR=$PKG -C qrexec-lib LIBDIR=/usr/lib INCLUDEDIR=/usr/include install
+	make DESTDIR=$PKG -C qmemman install
+	PYTHON=python3 make -C imgconverter all
+	PYTHON=python3 make -C imgconverter DESTDIR=$PKG install
+}
