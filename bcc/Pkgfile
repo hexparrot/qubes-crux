@@ -1,0 +1,23 @@
+# Description: bcc
+# URL: https://www.ibiblio.org/
+# Maintainer: William Dizon, wdchromium at gmail dot com 
+# Depends on: 
+
+name=bcc
+version=1.2
+release=1
+source=(https://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/repositories/$version/devel/$name.zip)
+
+build() {
+	mkdir $name-$version
+	cd $name-$version
+
+	unzip $PKGMK_SOURCE_DIR/$name.zip
+	cd SOURCE/BCC
+        unzip SOURCES.ZIP
+	make clean
+	make PREFIX=/usr || true
+
+	mkdir -p $PKG/usr/bin
+	install -m555 bcc/bcc $PKG/usr/bin/
+}

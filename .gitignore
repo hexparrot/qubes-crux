@@ -1,5 +1,6 @@
 # Source and pkg tarballs
 *.tar.gz
+*.zip
 
 # Remaining work folders
 work
