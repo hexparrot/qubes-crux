@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# /etc/rc.local: local multi-user startup script
+#
+
+/usr/sbin/qubesdb-daemon 0
+/usr/lib/qubes/init/qubes-random-seed.sh
+/usr/lib/qubes/init/qubes-sysinit.sh
+/usr/lib/qubes/init/qubes-early-vm-config.sh
+/usr/lib/qubes/init/mount-dirs.sh
+INTERFACE=eth0 /usr/lib/qubes/setup-ip
+
+/usr/lib/qubes/qrexec-agent &
+/bin/mkdir -p /var/run/console; /bin/touch /var/run/console/user
+DISPLAY=:0 /usr/bin/qubes-gui &
+
+# End of file
