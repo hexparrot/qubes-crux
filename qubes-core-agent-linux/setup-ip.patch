@@ -1,12 +1,23 @@
---- /root/saved/setup-ip        2019-06-20 15:49:41.612000000 -0700
-+++ /usr/lib/qubes/setup-ip     2019-06-21 08:07:22.371000000 -0700
+--- setup-ip.orig	2019-08-01 15:36:14.266000000 -0700
++++ setup-ip	2019-08-01 15:36:56.297000000 -0700
+@@ -14,8 +14,8 @@
+     gateway6=$(/usr/bin/qubesdb-read /qubes-gateway6)
+     primary_dns=$(/usr/bin/qubesdb-read /qubes-primary-dns 2>/dev/null || echo "$gateway")
+     secondary_dns=$(/usr/bin/qubesdb-read /qubes-secondary-dns)
+-    /sbin/ethtool -K "$INTERFACE" sg off
+-    /sbin/ethtool -K "$INTERFACE" tx off
++    /usr/sbin/ethtool -K "$INTERFACE" sg off
++    /usr/sbin/ethtool -K "$INTERFACE" tx off
+     # If NetworkManager is enabled, let it configure the network
+     if qsvc network-manager ; then
+         nm_config=/etc/NetworkManager/system-connections/qubes-uplink-$INTERFACE
 @@ -90,14 +90,15 @@
              /sbin/ifconfig "$INTERFACE" add "$ip6"/128
          fi
          /sbin/ifconfig "$INTERFACE" up
 -        /sbin/route add -host "$gateway" dev "$INTERFACE"
 +        /sbin/ip route add "$gateway"/32 dev "$INTERFACE"
-+       /sbin/ip route add default via "$gateway"
++        /sbin/ip route add default via "$gateway"
          if [ -n "$gateway6" ] && ! echo "$gateway6" | grep -q "^fe80:"; then
 -            /sbin/route -6 add "$gateway6/128" dev "$INTERFACE"
 +            /sbin/ip route -6 add "$gateway6/128" dev "$INTERFACE"
