@@ -1,0 +1,19 @@
+# Description: yajl - yet another json library
+# URL: https://github.com/lloyd/yajl
+# Maintainer: William Dizon, wdchromium at gmail dot com 
+# Depends on: 
+
+name=yajl
+version=2.1.0
+release=1
+source=(https://github.com/lloyd/yajl/archive/$version.tar.gz)
+
+build() {
+	cd $name-$version
+	mkdir build
+	cd build
+	cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+	make clean
+	make
+	make DESTDIR=$PKG install
+}
