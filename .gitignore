@@ -1,0 +1,5 @@
+# Source and pkg tarballs
+*.tar.gz
+
+# Remaining work folders
+work
