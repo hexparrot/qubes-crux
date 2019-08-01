@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/libvchan.h
+-rw-r--r--	root/root	usr/include/u2mfn-kernel.h
+-rw-r--r--	root/root	usr/include/u2mfnlib.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libu2mfn.so
+-rwxr-xr-x	root/root	usr/lib/libvchan-xen.so
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/vchan-xen.pc
