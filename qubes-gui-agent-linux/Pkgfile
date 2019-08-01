@@ -1,0 +1,39 @@
+# Description: Qubes component: qubes-gui-agent-linux
+# URL: https://qubes-os.org
+# Maintainer: William Dizon, wdchromium at gmail dot com 
+# Depends on: libsndfile pulseaudio
+
+name=qubes-gui-agent-linux
+version=R4.0.1
+release=1
+pulseaudio_version=12.2
+source=(https://github.com/QubesOS/qubes-gui-agent-linux/archive/$version.tar.gz)
+
+build() {
+	export BACKEND_VMM=xen
+
+	cd $name-$version
+
+	cd xf86-video-dummy
+	./autogen.sh --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+
+	cd ../xf86-input-mfndev
+	./autogen.sh --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	
+	cd ..
+	unset CFLAGS
+	unset CXXFLAGS
+	make appvm
+
+	make DESTDIR=$PKG SYSLIBDIR=/lib LIBDIR=/usr/lib USRLIBDIR=/usr/lib PA_VER=$pulseaudio_version install-rh-agent
+	install -D archlinux/PKGBUILD-z-qubes-session.sh $PKG/etc/X11/xinit/xinitrc.d/z-qubes-session.sh
+
+	make -C pulse all
+	make DESTDIR=$PKG LIBDIR=/usr/lib install-pulseaudio
+
+	cp $PKGMK_SOURCE_DIR/qubes-gui-agent.pam $PKG/etc/pam.d/qubes-gui-agent
+}
