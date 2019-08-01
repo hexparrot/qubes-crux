@@ -1,0 +1,26 @@
+# Description: Qubes component: qubes-vmm-xen
+# URL: https://qubes-os.org
+# Maintainer: William Dizon, wdchromium at gmail dot com 
+# Depends on: bcc iasl yajl
+
+name=qubes-vmm-xen
+version=R4.0
+xenversion=4.8.4
+release=1
+source=(https://github.com/QubesOS/qubes-vmm-xen/archive/$version.tar.gz
+	https://downloads.xenproject.org/release/xen/$xenversion/xen-$xenversion.tar.gz)
+
+build() {
+	mv xen-$xenversion $name-$version
+	# xen-4.8.4 should be a subdir to the qubes-vmm-xen dir
+
+	cd $name-$version/xen-$xenversion
+	patch -Np1 -i $PKGMK_SOURCE_DIR/qubes-xen.patch tools/libxc/xc_pm.c
+	/bin/bash ../apply-patches ../series-vm.conf ..
+	autoreconf
+	./configure --prefix=/usr \
+		    --disable-ocamltools \
+		    --disable-blktap2
+	make prefix=/usr dist-tools
+	make DESTDIR=$PKG LIBDIR=/usr/lib SBINDIR=/usr/sbin prefix=/usr install-tools
+}

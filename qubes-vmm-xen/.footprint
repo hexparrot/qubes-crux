@@ -1,0 +1,260 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/bash_completion.d/
+-rw-r--r--	root/root	etc/bash_completion.d/xl.sh
+drwxr-xr-x	root/root	etc/init.d/
+-rwxr-xr-x	root/root	etc/init.d/xen-watchdog
+-rwxr-xr-x	root/root	etc/init.d/xencommons
+-rwxr-xr-x	root/root	etc/init.d/xendomains
+-rwxr-xr-x	root/root	etc/init.d/xendriverdomain
+drwxr-xr-x	root/root	etc/sysconfig/
+-rw-r--r--	root/root	etc/sysconfig/xencommons
+-rw-r--r--	root/root	etc/sysconfig/xendomains
+drwxr-xr-x	root/root	etc/xen/
+drwxr-xr-x	root/root	etc/xen/scripts/
+-rwxr-xr-x	root/root	etc/xen/scripts/block
+-rw-r--r--	root/root	etc/xen/scripts/block-common.sh
+-rwxr-xr-x	root/root	etc/xen/scripts/block-drbd-probe
+-rwxr-xr-x	root/root	etc/xen/scripts/block-dummy
+-rwxr-xr-x	root/root	etc/xen/scripts/block-enbd
+-rwxr-xr-x	root/root	etc/xen/scripts/block-iscsi
+-rwxr-xr-x	root/root	etc/xen/scripts/block-nbd
+-rwxr-xr-x	root/root	etc/xen/scripts/block-tap
+-rwxr-xr-x	root/root	etc/xen/scripts/colo-proxy-setup
+-rwxr-xr-x	root/root	etc/xen/scripts/external-device-migrate
+-rw-r--r--	root/root	etc/xen/scripts/hotplugpath.sh
+-rwxr-xr-x	root/root	etc/xen/scripts/launch-xenstore
+-rw-r--r--	root/root	etc/xen/scripts/locking.sh
+-rw-r--r--	root/root	etc/xen/scripts/logging.sh
+-rwxr-xr-x	root/root	etc/xen/scripts/remus-netbuf-setup
+-rwxr-xr-x	root/root	etc/xen/scripts/vif-bridge
+-rw-r--r--	root/root	etc/xen/scripts/vif-common.sh
+-rwxr-xr-x	root/root	etc/xen/scripts/vif-nat
+-rwxr-xr-x	root/root	etc/xen/scripts/vif-openvswitch
+-rwxr-xr-x	root/root	etc/xen/scripts/vif-route
+-rwxr-xr-x	root/root	etc/xen/scripts/vif-setup
+-rwxr-xr-x	root/root	etc/xen/scripts/vif2
+-rwxr-xr-x	root/root	etc/xen/scripts/vscsi
+-rwxr-xr-x	root/root	etc/xen/scripts/xen-hotplug-cleanup
+-rw-r--r--	root/root	etc/xen/scripts/xen-hotplug-common.sh
+-rw-r--r--	root/root	etc/xen/scripts/xen-network-common.sh
+-rw-r--r--	root/root	etc/xen/scripts/xen-script-common.sh
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/xenstore
+-rwxr-xr-x	root/root	usr/bin/xenstore-chmod
+-rwxr-xr-x	root/root	usr/bin/xenstore-control
+-rwxr-xr-x	root/root	usr/bin/xenstore-exists
+-rwxr-xr-x	root/root	usr/bin/xenstore-list
+-rwxr-xr-x	root/root	usr/bin/xenstore-ls
+-rwxr-xr-x	root/root	usr/bin/xenstore-read
+-rwxr-xr-x	root/root	usr/bin/xenstore-rm
+-rwxr-xr-x	root/root	usr/bin/xenstore-watch
+-rwxr-xr-x	root/root	usr/bin/xenstore-write
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/_libxl_list.h
+-rw-r--r--	root/root	usr/include/_libxl_types.h
+-rw-r--r--	root/root	usr/include/_libxl_types_json.h
+-rw-r--r--	root/root	usr/include/libxenvchan.h
+-rw-r--r--	root/root	usr/include/libxl.h
+-rw-r--r--	root/root	usr/include/libxl_event.h
+-rw-r--r--	root/root	usr/include/libxl_json.h
+-rw-r--r--	root/root	usr/include/libxl_utils.h
+-rw-r--r--	root/root	usr/include/libxl_uuid.h
+-rw-r--r--	root/root	usr/include/libxlutil.h
+drwxr-xr-x	root/root	usr/include/xen/
+-rw-r--r--	root/root	usr/include/xen/COPYING
+-rw-r--r--	root/root	usr/include/xen/arch-arm.h
+drwxr-xr-x	root/root	usr/include/xen/arch-arm/
+drwxr-xr-x	root/root	usr/include/xen/arch-arm/hvm/
+-rw-r--r--	root/root	usr/include/xen/arch-arm/hvm/save.h
+drwxr-xr-x	root/root	usr/include/xen/arch-x86/
+-rw-r--r--	root/root	usr/include/xen/arch-x86/cpufeatureset.h
+-rw-r--r--	root/root	usr/include/xen/arch-x86/cpuid.h
+drwxr-xr-x	root/root	usr/include/xen/arch-x86/hvm/
+-rw-r--r--	root/root	usr/include/xen/arch-x86/hvm/save.h
+-rw-r--r--	root/root	usr/include/xen/arch-x86/hvm/start_info.h
+-rw-r--r--	root/root	usr/include/xen/arch-x86/pmu.h
+-rw-r--r--	root/root	usr/include/xen/arch-x86/xen-mca.h
+-rw-r--r--	root/root	usr/include/xen/arch-x86/xen-x86_32.h
+-rw-r--r--	root/root	usr/include/xen/arch-x86/xen-x86_64.h
+-rw-r--r--	root/root	usr/include/xen/arch-x86/xen.h
+-rw-r--r--	root/root	usr/include/xen/arch-x86_32.h
+-rw-r--r--	root/root	usr/include/xen/arch-x86_64.h
+-rw-r--r--	root/root	usr/include/xen/callback.h
+-rw-r--r--	root/root	usr/include/xen/dom0_ops.h
+-rw-r--r--	root/root	usr/include/xen/domctl.h
+-rw-r--r--	root/root	usr/include/xen/elfnote.h
+-rw-r--r--	root/root	usr/include/xen/errno.h
+-rw-r--r--	root/root	usr/include/xen/event_channel.h
+-rw-r--r--	root/root	usr/include/xen/features.h
+drwxr-xr-x	root/root	usr/include/xen/foreign/
+-rw-r--r--	root/root	usr/include/xen/foreign/arm32.h
+-rw-r--r--	root/root	usr/include/xen/foreign/arm64.h
+-rw-r--r--	root/root	usr/include/xen/foreign/x86_32.h
+-rw-r--r--	root/root	usr/include/xen/foreign/x86_64.h
+-rw-r--r--	root/root	usr/include/xen/gcov.h
+-rw-r--r--	root/root	usr/include/xen/grant_table.h
+drwxr-xr-x	root/root	usr/include/xen/hvm/
+-rw-r--r--	root/root	usr/include/xen/hvm/e820.h
+-rw-r--r--	root/root	usr/include/xen/hvm/hvm_info_table.h
+-rw-r--r--	root/root	usr/include/xen/hvm/hvm_op.h
+-rw-r--r--	root/root	usr/include/xen/hvm/hvm_vcpu.h
+-rw-r--r--	root/root	usr/include/xen/hvm/hvm_xs_strings.h
+-rw-r--r--	root/root	usr/include/xen/hvm/ioreq.h
+-rw-r--r--	root/root	usr/include/xen/hvm/params.h
+-rw-r--r--	root/root	usr/include/xen/hvm/pvdrivers.h
+-rw-r--r--	root/root	usr/include/xen/hvm/save.h
+drwxr-xr-x	root/root	usr/include/xen/io/
+-rw-r--r--	root/root	usr/include/xen/io/blkif.h
+-rw-r--r--	root/root	usr/include/xen/io/console.h
+-rw-r--r--	root/root	usr/include/xen/io/fbif.h
+-rw-r--r--	root/root	usr/include/xen/io/fsif.h
+-rw-r--r--	root/root	usr/include/xen/io/kbdif.h
+-rw-r--r--	root/root	usr/include/xen/io/libxenvchan.h
+-rw-r--r--	root/root	usr/include/xen/io/netif.h
+-rw-r--r--	root/root	usr/include/xen/io/pciif.h
+-rw-r--r--	root/root	usr/include/xen/io/protocols.h
+-rw-r--r--	root/root	usr/include/xen/io/ring.h
+-rw-r--r--	root/root	usr/include/xen/io/tpmif.h
+-rw-r--r--	root/root	usr/include/xen/io/usbif.h
+-rw-r--r--	root/root	usr/include/xen/io/vscsiif.h
+-rw-r--r--	root/root	usr/include/xen/io/xenbus.h
+-rw-r--r--	root/root	usr/include/xen/io/xs_wire.h
+-rw-r--r--	root/root	usr/include/xen/kexec.h
+-rw-r--r--	root/root	usr/include/xen/memory.h
+-rw-r--r--	root/root	usr/include/xen/nmi.h
+-rw-r--r--	root/root	usr/include/xen/physdev.h
+-rw-r--r--	root/root	usr/include/xen/platform.h
+-rw-r--r--	root/root	usr/include/xen/pmu.h
+-rw-r--r--	root/root	usr/include/xen/sched.h
+drwxr-xr-x	root/root	usr/include/xen/sys/
+-rw-r--r--	root/root	usr/include/xen/sys/evtchn.h
+-rw-r--r--	root/root	usr/include/xen/sys/gntalloc.h
+-rw-r--r--	root/root	usr/include/xen/sys/gntdev.h
+-rw-r--r--	root/root	usr/include/xen/sys/privcmd.h
+-rw-r--r--	root/root	usr/include/xen/sys/xenbus_dev.h
+-rw-r--r--	root/root	usr/include/xen/sysctl.h
+-rw-r--r--	root/root	usr/include/xen/tmem.h
+-rw-r--r--	root/root	usr/include/xen/trace.h
+-rw-r--r--	root/root	usr/include/xen/vcpu.h
+-rw-r--r--	root/root	usr/include/xen/version.h
+-rw-r--r--	root/root	usr/include/xen/vm_event.h
+-rw-r--r--	root/root	usr/include/xen/xen-compat.h
+-rw-r--r--	root/root	usr/include/xen/xen.h
+-rw-r--r--	root/root	usr/include/xen/xencomm.h
+-rw-r--r--	root/root	usr/include/xen/xenoprof.h
+drwxr-xr-x	root/root	usr/include/xen/xsm/
+-rw-r--r--	root/root	usr/include/xen/xsm/flask_op.h
+-rw-r--r--	root/root	usr/include/xencall.h
+-rw-r--r--	root/root	usr/include/xenctrl.h
+-rw-r--r--	root/root	usr/include/xenctrl_compat.h
+-rw-r--r--	root/root	usr/include/xenevtchn.h
+-rw-r--r--	root/root	usr/include/xenforeignmemory.h
+-rw-r--r--	root/root	usr/include/xengnttab.h
+-rw-r--r--	root/root	usr/include/xenguest.h
+drwxr-xr-x	root/root	usr/include/xenstore-compat/
+-rw-r--r--	root/root	usr/include/xenstore-compat/xs.h
+-rw-r--r--	root/root	usr/include/xenstore-compat/xs_lib.h
+-rw-r--r--	root/root	usr/include/xenstore.h
+-rw-r--r--	root/root	usr/include/xenstore_lib.h
+-rw-r--r--	root/root	usr/include/xentoollog.h
+lrwxrwxrwx	root/root	usr/include/xs.h -> xenstore-compat/xs.h
+lrwxrwxrwx	root/root	usr/include/xs_lib.h -> xenstore-compat/xs_lib.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libxencall.a
+lrwxrwxrwx	root/root	usr/lib/libxencall.so -> libxencall.so.1
+lrwxrwxrwx	root/root	usr/lib/libxencall.so.1 -> libxencall.so.1.0
+-rwxr-xr-x	root/root	usr/lib/libxencall.so.1.0
+-rw-r--r--	root/root	usr/lib/libxenctrl.a
+lrwxrwxrwx	root/root	usr/lib/libxenctrl.so -> libxenctrl.so.4.8
+lrwxrwxrwx	root/root	usr/lib/libxenctrl.so.4.8 -> libxenctrl.so.4.8.0
+-rwxr-xr-x	root/root	usr/lib/libxenctrl.so.4.8.0
+-rw-r--r--	root/root	usr/lib/libxenevtchn.a
+lrwxrwxrwx	root/root	usr/lib/libxenevtchn.so -> libxenevtchn.so.1
+lrwxrwxrwx	root/root	usr/lib/libxenevtchn.so.1 -> libxenevtchn.so.1.0
+-rwxr-xr-x	root/root	usr/lib/libxenevtchn.so.1.0
+-rw-r--r--	root/root	usr/lib/libxenforeignmemory.a
+lrwxrwxrwx	root/root	usr/lib/libxenforeignmemory.so -> libxenforeignmemory.so.1
+lrwxrwxrwx	root/root	usr/lib/libxenforeignmemory.so.1 -> libxenforeignmemory.so.1.0
+-rwxr-xr-x	root/root	usr/lib/libxenforeignmemory.so.1.0
+-rw-r--r--	root/root	usr/lib/libxengnttab.a
+lrwxrwxrwx	root/root	usr/lib/libxengnttab.so -> libxengnttab.so.1
+lrwxrwxrwx	root/root	usr/lib/libxengnttab.so.1 -> libxengnttab.so.1.1
+-rwxr-xr-x	root/root	usr/lib/libxengnttab.so.1.1
+-rw-r--r--	root/root	usr/lib/libxenguest.a
+lrwxrwxrwx	root/root	usr/lib/libxenguest.so -> libxenguest.so.4.8
+lrwxrwxrwx	root/root	usr/lib/libxenguest.so.4.8 -> libxenguest.so.4.8.0
+-rwxr-xr-x	root/root	usr/lib/libxenguest.so.4.8.0
+-rw-r--r--	root/root	usr/lib/libxenlight.a
+lrwxrwxrwx	root/root	usr/lib/libxenlight.so -> libxenlight.so.4.8
+lrwxrwxrwx	root/root	usr/lib/libxenlight.so.4.8 -> libxenlight.so.4.8.0
+-rwxr-xr-x	root/root	usr/lib/libxenlight.so.4.8.0
+-rw-r--r--	root/root	usr/lib/libxenstore.a
+lrwxrwxrwx	root/root	usr/lib/libxenstore.so -> libxenstore.so.3.0
+lrwxrwxrwx	root/root	usr/lib/libxenstore.so.3.0 -> libxenstore.so.3.0.3
+-rwxr-xr-x	root/root	usr/lib/libxenstore.so.3.0.3
+-rw-r--r--	root/root	usr/lib/libxentoollog.a
+lrwxrwxrwx	root/root	usr/lib/libxentoollog.so -> libxentoollog.so.1
+lrwxrwxrwx	root/root	usr/lib/libxentoollog.so.1 -> libxentoollog.so.1.0
+-rwxr-xr-x	root/root	usr/lib/libxentoollog.so.1.0
+-rw-r--r--	root/root	usr/lib/libxenvchan.a
+lrwxrwxrwx	root/root	usr/lib/libxenvchan.so -> libxenvchan.so.4.8
+lrwxrwxrwx	root/root	usr/lib/libxenvchan.so.4.8 -> libxenvchan.so.4.8.0
+-rwxr-xr-x	root/root	usr/lib/libxenvchan.so.4.8.0
+-rw-r--r--	root/root	usr/lib/libxlutil.a
+lrwxrwxrwx	root/root	usr/lib/libxlutil.so -> libxlutil.so.4.8
+lrwxrwxrwx	root/root	usr/lib/libxlutil.so.4.8 -> libxlutil.so.4.8.0
+-rwxr-xr-x	root/root	usr/lib/libxlutil.so.4.8.0
+drwxr-xr-x	root/root	usr/lib/python2.7/
+drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen-3.0-py2.7.egg-info
+drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/xen/
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/__init__.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/__init__.pyc
+drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/xen/lowlevel/
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/lowlevel/__init__.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/lowlevel/__init__.pyc
+-rwxr-xr-x	root/root	usr/lib/python2.7/site-packages/xen/lowlevel/xc.so
+-rwxr-xr-x	root/root	usr/lib/python2.7/site-packages/xen/lowlevel/xs.so
+drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/xen/migration/
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/__init__.py (EMPTY)
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/__init__.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/legacy.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/legacy.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/libxc.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/libxc.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/libxl.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/libxl.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/public.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/public.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/tests.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/tests.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/verify.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/verify.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/xl.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/xen/migration/xl.pyc
+drwxr-xr-x	root/root	usr/lib/xen/
+drwxr-xr-x	root/root	usr/lib/xen/bin/
+-rwxr-xr-x	root/root	usr/lib/xen/bin/convert-legacy-stream
+-rwxr-xr-x	root/root	usr/lib/xen/bin/init-xenstore-domain
+-rwxr-xr-x	root/root	usr/lib/xen/bin/libxl-save-helper
+-rwxr-xr-x	root/root	usr/lib/xen/bin/verify-stream-v2
+-rwxr-xr-x	root/root	usr/lib/xen/bin/xen-init-dom0
+-rwxr-xr-x	root/root	usr/lib/xen/bin/xendomains
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/xenstored
+-rwxr-xr-x	root/root	usr/sbin/xl
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/pkgconfig/
+-rw-r--r--	root/root	usr/share/pkgconfig/xenlight.pc
+-rw-r--r--	root/root	usr/share/pkgconfig/xlutil.pc
+drwxr-xr-x	root/root	var/
+drwxr-xr-x	root/root	var/lib/
+drwxr-xr-x	root/root	var/lib/xen/
+drwx------	root/root	var/lib/xen/dump/
+drwxr-xr-x	root/root	var/lib/xenstored/
+drwxr-xr-x	root/root	var/log/
+drwxr-xr-x	root/root	var/log/xen/
+drwxr-xr-x	root/root	var/run/
+drwxr-xr-x	root/root	var/run/xen/
+drwxr-xr-x	root/root	var/run/xenstored/
