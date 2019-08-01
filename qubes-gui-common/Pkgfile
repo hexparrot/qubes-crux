@@ -1,0 +1,15 @@
+# Description: Qubes component: qubes-gui-common
+# URL: https://qubes-os.org
+# Maintainer: William Dizon, wdchromium at gmail dot com 
+# Depends on:
+
+name=qubes-gui-common
+version=R4.0
+release=1
+source=(https://github.com/QubesOS/qubes-gui-common/archive/$version.tar.gz)
+
+build() {
+	cd $name-$version
+	mkdir -p $PKG/usr/include
+	cp include/*.h $PKG/usr/include/
+}
