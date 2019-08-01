@@ -1,0 +1,25 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/qubesdb-cmd
+lrwxrwxrwx	root/root	usr/bin/qubesdb-list -> qubesdb-cmd
+lrwxrwxrwx	root/root	usr/bin/qubesdb-multiread -> qubesdb-cmd
+lrwxrwxrwx	root/root	usr/bin/qubesdb-read -> qubesdb-cmd
+-rwxr-xr-x	root/root	usr/bin/qubesdb-read-bool
+lrwxrwxrwx	root/root	usr/bin/qubesdb-rm -> qubesdb-cmd
+lrwxrwxrwx	root/root	usr/bin/qubesdb-watch -> qubesdb-cmd
+lrwxrwxrwx	root/root	usr/bin/qubesdb-write -> qubesdb-cmd
+drwxr-xr-x	root/root	usr/include/
+-rwxr-xr-x	root/root	usr/include/qubesdb-client.h
+-rwxr-xr-x	root/root	usr/include/qubesdb.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libqubesdb.so
+drwxr-xr-x	root/root	usr/lib/python2.7/
+drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/QubesDB-1.0-py2.7.egg-info
+-rwxr-xr-x	root/root	usr/lib/python2.7/site-packages/qubesdb.so
+drwxr-xr-x	root/root	usr/lib/python3.7/
+drwxr-xr-x	root/root	usr/lib/python3.7/site-packages/
+-rw-r--r--	root/root	usr/lib/python3.7/site-packages/QubesDB-1.0-py3.7.egg-info
+-rwxr-xr-x	root/root	usr/lib/python3.7/site-packages/qubesdb.cpython-37m-x86_64-linux-gnu.so
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/qubesdb-daemon

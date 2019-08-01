@@ -1,0 +1,22 @@
+# Description: Qubes component: qubes-core-qubesdb
+# URL: https://qubes-os.org
+# Maintainer: William Dizon, wdchromium at gmail dot com 
+# Depends on:
+
+name=qubes-core-qubesdb
+version=R4.0.1
+release=1
+source=(https://github.com/QubesOS/qubes-core-qubesdb/archive/$version.tar.gz)
+
+build() {
+	export BACKEND_VMM=xen
+
+	cd $name-$version
+
+	patch -Np0 -i $PKGMK_SOURCE_DIR/no_systemd.patch $SRC/$name-$version/daemon/db-daemon.c
+
+	make all
+	PYTHON=python3 make -C python
+	make DESTDIR=$PKG LIBDIR=/usr/lib BINDIR=/usr/bin SBINDIR=/usr/sbin install
+	PYTHON=python3 make -C python DESTDIR=$PKG LIBDIR=/usr/lib BINDIR=/usr/bin SBINDIR=/usr/sbin install
+}
