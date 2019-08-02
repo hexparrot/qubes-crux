@@ -1,0 +1,7 @@
+drwxr-xr-x	root/root	lib/
+drwxr-xr-x	root/root	lib/modules/
+drwxr-xr-x	root/root	lib/modules/<kernel-version>/
+drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/
+drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/
+drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/u2mfn/
+-rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/u2mfn/u2mfn.ko

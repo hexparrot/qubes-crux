@@ -1,0 +1,22 @@
+# Description: Qubes component: u2mfn kernel module
+# URL: https://qubes-os.org
+# Maintainer: William Dizon, wdchromium at gmail dot com 
+# Depends on:
+
+name=u2mfn
+version=R4.0
+u2mfn_version=4.0.17
+kernel_version=5.1.15
+release=1
+source=(https://github.com/QubesOS/qubes-linux-utils/archive/$version.tar.gz)
+
+build() {
+	cd qubes-linux-utils-$version
+	export BACKEND_VMM=xen
+	make DESTDIR=$SRC -C kernel-modules install-u2mfn
+	cd $SRC/usr/src/u2mfn-${u2mfn_version}
+	echo -e "all:\n\tmake -C /lib/modules/${kernel_version}/build M=\$(PWD) modules" >> Makefile
+	make all
+	mkdir -pv $PKG/lib/modules/${kernel_version}/kernel/drivers/u2mfn
+	install -D -m 644 u2mfn.ko $PKG/lib/modules/${kernel_version}/kernel/drivers/u2mfn/u2mfn.ko
+}
