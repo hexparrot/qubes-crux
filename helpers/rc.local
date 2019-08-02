@@ -3,6 +3,8 @@
 # /etc/rc.local: local multi-user startup script
 #
 
+insmod /lib/modules/$(uname -r)/kernel/drivers/u2mfn/u2mfn.ko
+
 /usr/sbin/qubesdb-daemon 0
 /usr/lib/qubes/init/qubes-random-seed.sh
 /usr/lib/qubes/init/qubes-sysinit.sh
