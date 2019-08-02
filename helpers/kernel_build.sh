@@ -3,7 +3,7 @@
 KERNEL_VERSION=5.1.15
 
 (cd /usr/src/linux-${KERNEL_VERSION}; make mrproper)
-cp config-5.1.15 /usr/src/linux-${KERNEL_VERSION}/
+cp config-5.1.15 /usr/src/linux-${KERNEL_VERSION}/.config
 cd /usr/src/linux-${KERNEL_VERSION}
 make olddefconfig
 make
