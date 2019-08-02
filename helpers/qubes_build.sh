@@ -1,8 +1,17 @@
 #!/bin/bash
 
+# enable contrib ports tree
+mv /etc/ports/contrib.rsync.inactive /etc/ports/contrib.rsync
+ports -u
+
+# install prereqs for xen
+echo 'CRUX rolling release' > /etc/redhat-release
+(cd /usr/ports/contrib/lsb-release; pkgmk -d -i)
 (cd /usr/ports/qubes-crux/bcc; pkgmk -d -i)
+(cd /usr/ports/contrib/iasl; pkgmk -d -i)
 (cd /usr/ports/qubes-crux/yajl; pkgmk -d -i)
 (cd /usr/ports/qubes-crux/qubes-vmm-xen; pkgmk -d -i)
+
 (cd /usr/ports/qubes-crux/qubes-core-vchan-xen; pkgmk -d -i)
 
 # pip installations necessary for qubes-linux-utils
@@ -10,6 +19,7 @@
 (cd /usr/ports/qubes-crux/qubes-linux-utils; pkgmk -d -i)
 
 # qcal + use new fstab
+(cd /usr/ports/contrib/pandoc-bin; pkgmk -d -i)
 (cd /usr/ports/qubes-crux/qubes-core-agent-linux; pkgmk -d -i)
 cp /etc/fstab.qubes /etc/fstab
 
@@ -24,3 +34,4 @@ cp /etc/fstab.qubes /etc/fstab
 
 mv /etc/rc.local /etc/rc.local.bak
 cp rc.local /etc/rc.local  
+
