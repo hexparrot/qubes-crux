@@ -28,5 +28,5 @@ dbus-uuidgen --ensure=/etc/machine-id
 sed -i '$iexport DISPLAY=:0' /etc/profile
 
 # disable crux' net config in favor of qubes'
-sed 's# net # #' /etc/rc.conf
+sed -i 's# net # #' /etc/rc.conf
 
