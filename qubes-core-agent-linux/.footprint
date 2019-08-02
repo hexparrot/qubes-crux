@@ -5,7 +5,7 @@ drwxr-xr-x	root/root	etc/dconf/
 drwxr-xr-x	root/root	etc/dconf/db/
 drwxr-xr-x	root/root	etc/dconf/db/local.d/
 -rw-r--r--	root/root	etc/dconf/db/local.d/dpi
--rw-r--r--	root/root	etc/fstab
+-rw-r--r--	root/root	etc/fstab.qubes
 drwxr-xr-x	root/root	etc/init.d/
 -rwxr-xr-x	root/root	etc/init.d/qubes-core
 -rwxr-xr-x	root/root	etc/init.d/qubes-core-early

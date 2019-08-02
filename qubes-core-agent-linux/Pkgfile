@@ -25,5 +25,6 @@ build() {
 	ln -s ../qubes-rpc $PKG/etc/qubes/rpc-config
 
 	sed -i 's#/dev/mapper/dmroot#/dev/xvda1#' $PKG/etc/fstab
+	mv $PKG/etc/fstab $PKG/etc/fstab.qubes
 	patch -Np0 -i $PKGMK_SOURCE_DIR/setup-ip.patch $PKG/usr/lib/qubes/setup-ip
 }
