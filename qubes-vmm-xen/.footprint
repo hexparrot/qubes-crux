@@ -1,14 +1,14 @@
 drwxr-xr-x	root/root	etc/
 drwxr-xr-x	root/root	etc/bash_completion.d/
 -rw-r--r--	root/root	etc/bash_completion.d/xl.sh
+drwxr-xr-x	root/root	etc/default/
+-rw-r--r--	root/root	etc/default/xencommons
+-rw-r--r--	root/root	etc/default/xendomains
 drwxr-xr-x	root/root	etc/init.d/
 -rwxr-xr-x	root/root	etc/init.d/xen-watchdog
 -rwxr-xr-x	root/root	etc/init.d/xencommons
 -rwxr-xr-x	root/root	etc/init.d/xendomains
 -rwxr-xr-x	root/root	etc/init.d/xendriverdomain
-drwxr-xr-x	root/root	etc/sysconfig/
--rw-r--r--	root/root	etc/sysconfig/xencommons
--rw-r--r--	root/root	etc/sysconfig/xendomains
 drwxr-xr-x	root/root	etc/xen/
 drwxr-xr-x	root/root	etc/xen/scripts/
 -rwxr-xr-x	root/root	etc/xen/scripts/block
