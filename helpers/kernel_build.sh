@@ -5,9 +5,10 @@ name=$(ls -d /usr/src/*/)
 nums=${name#*-}
 VERS=${nums%?}
 
-(cd /usr/src/linux-${VERS}; make mrproper)
-cp kernel.config /usr/src/linux-${VERS}/.config
 cd /usr/src/linux-${VERS}
+make mrproper
+cp /usr/ports/qubes-crux/helpers/kernel.config .config
+
 make olddefconfig
 make
 make modules
@@ -21,4 +22,3 @@ cp -rv dest/include/* /usr/include
 depmod -a
 
 grub-mkconfig > /boot/grub/grub.cfg
-
