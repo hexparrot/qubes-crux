@@ -5,6 +5,7 @@
 
 name=u2mfn
 version=R4.0
+release=1.0
 u2mfn_version=4.0.17
 kernel_version=$(uname -r)
 source=(https://github.com/QubesOS/qubes-linux-utils/archive/$version.tar.gz)
