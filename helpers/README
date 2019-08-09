@@ -1,0 +1,86 @@
+USING CRUX AS A QUBES VIRTUAL MACHINE
+------------------------------------------
+
+The current steps will help you install CRUX on a HVM in Qubes.
+The following features are currently implemented:
+
+* dom0 I/O and cross-vm copy-paste
+* qvm-* commands
+* mounts private drive (xvdb)
+* working audio
+* ships with Firefox
+
+Currently not working:
+
+* firewall rules from dom0
+* xvd* size changes
+* swap partition (xvdc)
+* /rw/config
+* convert qubes services to rc.d format
+
+Working, but not yet documented:
+
+* PVH integration (use dom0 kernel, dom0 config)
+
+
+INSTALLATION STEPS
+------------------------------------------
+
+General idea:
+
+Create a file-based block device in dom0 and attach to a throwaway qube.
+From the throwaway, mount, then clone the `qubes-crux` repository to it.
+Download the CRUX ISO, and boot a new Qube from the ISO.
+Detach the mount from the throwaway, attach it now to the empty CRUX qube.
+Mount the block device to CRUX from the Live terminal prompt.
+Run the helper/crux_* scripts to install CRUX to your permanent system (xvda1).
+Reboot and enter the fresh CRUX installation, build the Qubes components.
+Reboot and enjoy a CRUX TemplateVM.
+
+Specifics:
+
+In dom0-
+$ truncate --size 10MB /var/tmp/crux.img
+$ sudo losetup -f --show /var/tmp/crux.img
+/dev/loop1
+$ qvm-block | grep /var/tmp/crux.img | cut -d' ' -f1
+dom0:loop1
+$ sudo qvm-block attach throwaway dom0:loop1
+$ qvm-block | grep /var/tmp/crux.img | sed -rn 's#.*=(xvd.).*#\1#gp'
+xvdi
+
+In VM 'throwaway'-
+$ wget [crux-iso url]
+$ sudo mkfs.ext4 /dev/xvdi
+$ sudo mount /dev/xvdi /mnt/removable
+$ cd /mnt/removable
+$ git clone https://github.com/hexparrot/qubes-crux
+
+In dom0-
+$ sudo qvm-block detach throwaway dom0:loop1
+[Create a new standalone qube, boot from this ISO]
+$ sudo qvm-block attach crux dom0:loop1
+$ qvm-block | grep /var/tmp/crux.img | sed -rn 's#.*=(xvd.).*#\1#gp'
+xvdj
+
+In VM 'crux'-
+[ensure this qube has enough memory to compile a kernel, 2048MB+ at least]
+# mkdir /source
+# sudo mount /dev/xvdj /source
+# cd /source/qubes-crux/helpers
+# fdisk /dev/xvda
+[dos partition style, create partition 1 the full size of the disk, write]
+# ./crux_install.sh
+# ./crux_config.sh
+# ./crux_kernel_auto.sh
+# reboot
+[qube closes, reopen without ISO (default), boots into CRUX]
+
+# cd /usr/ports/qubes-crux/helpers
+# IP=10.137.0.x GW=10.137.0.y ./eth0_up.sh
+# ./qubes_build.sh
+# reboot
+
+And you're done! It's a working qube, perfect for DispVMs or main use
+by installing additional software using CRUX' ports system. See prt-get.
+
