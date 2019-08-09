@@ -40,3 +40,9 @@ find opt \( -name '*.pkg.tar.*' \) -exec pkgadd -r /mnt -f {} \;
 echo 'installing xorg...'
 find xorg \( -name '*.pkg.tar.*' \) -exec pkgadd -r /mnt -f {} \;
 
+# copy over the whole linux kernel and extract
+echo 'extracting kernel...'
+mkdir -p /mnt/usr/src
+cp /media/crux/kernel/linux-*.tar.xz /mnt/usr/src/
+(cd /mnt/usr/src; tar -xf linux-*.tar.xz)
+

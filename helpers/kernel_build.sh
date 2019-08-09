@@ -1,14 +1,12 @@
 #!/bin/bash
 
-# extract kernel version from dirnames, get most recent, semantic-versioned
-name=$(ls -Av1 /usr/src | tail -1)
+# extract kernel version from dirnames
+name=$(ls -d /usr/src/*/)
 nums=${name#*-}
 VERS=${nums%?}
 
 cd /usr/src/linux-${VERS}
-make mrproper
-cp /usr/ports/qubes-crux/helpers/kernel.config .config
-
+make clean
 make olddefconfig
 make
 make modules
@@ -22,3 +20,4 @@ cp -rv dest/include/* /usr/include
 depmod -a
 
 grub-mkconfig > /boot/grub/grub.cfg
+
