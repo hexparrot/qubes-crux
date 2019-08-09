@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # extract kernel version from dirnames
-name=$(ls -d /usr/src/*/)
+name=$(ls -dAv1 /usr/src/*/ | tail -1)
 nums=${name#*-}
 VERS=${nums%?}
 
