@@ -12,8 +12,8 @@ if grep -qs /sys/firmware/efi/efivars /proc/mounts; then
 	mount --bind /sys/firmware/efi/efivars /mnt/sys/firmware/efi/efivars
 fi
 
-# copy over the kernel present in dom0's copy of this repo
-echo "copying dom0 kernel to chroot (/usr/ports/qubes-crux/helpers)..."
+# copy over the kernel present in original copy of this repo
+echo "copying generic stripped kernel to chroot (/usr/ports/qubes-crux/helpers)..."
 cp kernel.config /mnt/usr/ports/qubes-crux/helpers/kernel.config
 
 name=$(ls -dAv1 /mnt/usr/src/*/)
@@ -36,4 +36,3 @@ cd /usr/ports/qubes-crux/helpers
 /bin/bash /usr/ports/qubes-crux/helpers/kernel_build.sh
 
 EOF
-
