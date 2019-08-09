@@ -32,6 +32,10 @@ cp /etc/fstab.qubes /etc/fstab
 (cd /usr/ports/contrib/ethtool; pkgmk -d -i)
 (cd /usr/ports/qubes-crux/qubes-gui-agent-linux; pkgmk -d -i)
 
+# build u2mfn module
+(cd /usr/ports/qubes-crux/u2mfn; pkgmk -d -i)
+depmod -a
+
 mv /etc/rc.local /etc/rc.local.bak
 cp rc.local /etc/rc.local  
 
