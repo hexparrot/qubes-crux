@@ -24,6 +24,7 @@ build() {
 	# crux uses rc.d rather than init.d, but compatible scripts, lets symlink
 	mkdir -p $PKG/etc/rc.d
 	ln -s /usr/lib/qubes/init $PKG/etc/rc.d/init.d
+	cp $PKGMK_SOURCE_DIR/qubes-setup-ip $PKG/etc/rc.d/
 
 	# this arrangement is goofy, but we can ensure all scripts live together
 	mv $PKG/etc/qubes/rpc-config $PKG/etc/qubes/rpc-config.bak

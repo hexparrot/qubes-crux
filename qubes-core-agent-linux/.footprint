@@ -122,6 +122,7 @@ drwxr-xr-x	root/root	etc/qubes/suspend-pre.d/
 -rw-r--r--	root/root	etc/qubes/suspend-pre.d/README
 drwxr-xr-x	root/root	etc/rc.d/
 lrwxrwxrwx	root/root	etc/rc.d/init.d -> /usr/lib/qubes/init
+-rwxr-xr-x	root/root	etc/rc.d/qubes-setup-ip
 drwxr-x---	root/root	etc/sudoers.d/
 -r--r-----	root/root	etc/sudoers.d/qt_x11_no_mitshm
 -r--r-----	root/root	etc/sudoers.d/qubes
