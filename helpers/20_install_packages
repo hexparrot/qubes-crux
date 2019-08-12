@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Copy over the whole qubes-crux repository tree
+echo 'copying over helper scripts...'
+mkdir -p /mnt/usr/ports
+cp -R ../../qubes-crux /mnt/usr/ports/
+
+# Create the crux pkgadd database (flatfile)
+mkdir -p /mnt/var/lib/pkg
+touch /mnt/var/lib/pkg/db
+
+# Install all the packages on the crux ISO to installation mount
+cd /media/crux
+echo 'installing core...'
+find core \( -name '*.pkg.tar.*' \) -exec pkgadd -r /mnt -f {} \;
+echo 'installing opt...'
+find opt \( -name '*.pkg.tar.*' \) -exec pkgadd -r /mnt -f {} \;
+echo 'installing xorg...'
+find xorg \( -name '*.pkg.tar.*' \) -exec pkgadd -r /mnt -f {} \;
+
+# Copy over the whole linux kernel source tree and extract
+echo 'copying linux kernel source tree...'
+
+mkdir -p /mnt/usr/src
+cp /media/crux/kernel/linux-*.tar.xz /mnt/usr/src/
+
+echo 'extracting kernel source...'
+(cd /mnt/usr/src; tar -xf linux-*.tar.xz)
+

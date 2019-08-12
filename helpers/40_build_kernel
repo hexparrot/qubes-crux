@@ -1,18 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
-# mount all necessary fs from crux live iso
-mount --bind /dev /mnt/dev
-mount --bind /tmp /mnt/tmp
-mount --bind /run /mnt/run
-mount -t proc proc /mnt/proc 2&>/dev/null
-mount -t sysfs none /mnt/sys 2&>/dev/null
-mount -t devpts -o noexec,nosuid,gid=tty,mode=0620 devpts /mnt/dev/pts
-
-if grep -qs /sys/firmware/efi/efivars /proc/mounts; then
-	mount --bind /sys/firmware/efi/efivars /mnt/sys/firmware/efi/efivars
-fi
-
-# copy over the kernel present in original copy of this repo
+# Copying kernel config from outer environment into chroot
+# this copy allows any users who make modifications direct to the kernel config
+# to take effect without having to switch over to manual.
+# In all other cases, this copy should have no effect (same files)
 echo "copying generic stripped kernel to chroot (/usr/ports/qubes-crux/helpers)..."
 cp kernel.config /mnt/usr/ports/qubes-crux/helpers/kernel.config
 
@@ -20,7 +11,7 @@ name=$(ls -dAv1 /mnt/usr/src/*/)
 nums=${name#*-}
 VERS=${nums%?}
 
-# enter the chroot and go!
+# Enter the chroot and clean the source tree, build the kernel
 chroot /mnt /bin/bash -x <<EOF
 
 if [ ! -f "/usr/src/linux-$VERS/.config" ]; then
@@ -36,3 +27,4 @@ cd /usr/ports/qubes-crux/helpers
 /bin/bash /usr/ports/qubes-crux/helpers/kernel_build.sh
 
 EOF
+

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+# Attempt to unmount any previous attempts
 err=''
 trap "err+=1" ERR
 
@@ -24,25 +24,16 @@ done
 
 if [[ ${#err} -ne 8 ]]; then
   echo 'multiple attempts to unmount all /mnt mounts failed, aborting.'
+  exit 1
 fi
 
-mkfs.ext4 /dev/xvda1
+# Programatically clear out partitions on xvda and replace it with
+# a single Linux partition that takes up the whole /dev/xvda blockdev
+echo 'type=83' | sfdisk /dev/xvda
+
+# Make the ext4 filesystem, confirm it non-interactively
+mkfs.ext4 /dev/xvda1 -F -F
+
+# Mount the newly created fs on the /mnt mount point, as crux prefers
 mount /dev/xvda1 /mnt
-
-mkdir -p /mnt/var/lib/pkg
-touch /mnt/var/lib/pkg/db
-
-cd /media/crux
-echo 'installing core...'
-find core \( -name '*.pkg.tar.*' \) -exec pkgadd -r /mnt -f {} \;
-echo 'installing opt...'
-find opt \( -name '*.pkg.tar.*' \) -exec pkgadd -r /mnt -f {} \;
-echo 'installing xorg...'
-find xorg \( -name '*.pkg.tar.*' \) -exec pkgadd -r /mnt -f {} \;
-
-# copy over the whole linux kernel and extract
-echo 'extracting kernel...'
-mkdir -p /mnt/usr/src
-cp /media/crux/kernel/linux-*.tar.xz /mnt/usr/src/
-(cd /mnt/usr/src; tar -xf linux-*.tar.xz)
 
