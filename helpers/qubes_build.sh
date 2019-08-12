@@ -36,3 +36,7 @@ cp /etc/fstab.qubes /etc/fstab
 (cd /usr/ports/qubes-crux/u2mfn; pkgmk -d -i)
 depmod -a
 
+# turn on all the services in rc.conf
+mv /etc/rc.conf /etc/rc.conf.bak
+cp rc.conf /etc/rc.conf
+
