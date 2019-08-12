@@ -16,7 +16,7 @@ Currently not working:
 * xvd* size changes
 * swap partition (xvdc)
 * /rw/config
-* convert qubes services to rc.d format
+* qubes iptables service
 
 Working, but not yet documented:
 

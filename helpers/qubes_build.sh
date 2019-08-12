@@ -36,6 +36,3 @@ cp /etc/fstab.qubes /etc/fstab
 (cd /usr/ports/qubes-crux/u2mfn; pkgmk -d -i)
 depmod -a
 
-mv /etc/rc.local /etc/rc.local.bak
-cp rc.local /etc/rc.local  
-
