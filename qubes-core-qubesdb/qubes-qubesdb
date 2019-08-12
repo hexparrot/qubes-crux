@@ -1,0 +1,31 @@
+#!/bin/sh
+#
+# /etc/rc.d/qubes-qubesdb: start/stop qubesdb daemons
+#
+
+case $1 in
+start)
+	echo "Starting qubesdb-daemon..."
+	/usr/sbin/qubesdb-daemon 0
+	;;
+stop)
+	echo "Killing qubesdb-daemon..."
+	killall qubesdb-daemon
+	;;
+restart)
+	$0 stop
+	$0 start
+	;;
+status)
+	if [ "$(pidof qubesdb-daemon)" ]; then
+		echo "qubesdb-daemon running on pid $(pidof qubesdb-daemon)."
+	else
+		echo "qubesdb-daemon not running."
+	fi
+	;;
+*)
+	echo "usage: $0 [start|stop|restart|status]"
+	;;
+esac
+
+# End of file
