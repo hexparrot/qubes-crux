@@ -120,6 +120,8 @@ drwxr-xr-x	root/root	etc/qubes/suspend-post.d/
 -rwxr-xr-x	root/root	etc/qubes/suspend-post.d/qvm-sync-clock.sh
 drwxr-xr-x	root/root	etc/qubes/suspend-pre.d/
 -rw-r--r--	root/root	etc/qubes/suspend-pre.d/README
+drwxr-xr-x	root/root	etc/rc.d/
+lrwxrwxrwx	root/root	etc/rc.d/init.d -> /usr/lib/qubes/init
 drwxr-x---	root/root	etc/sudoers.d/
 -r--r-----	root/root	etc/sudoers.d/qt_x11_no_mitshm
 -r--r-----	root/root	etc/sudoers.d/qubes
@@ -144,6 +146,8 @@ drwxr-xr-x	root/root	lib/systemd/system/
 drwxr-xr-x	root/root	mnt/
 drwxr-xr-x	root/root	mnt/removable/
 drwxr-xr-x	root/root	rw/
+drwxr-xr-x	root/root	sbin/
+lrwxrwxrwx	root/root	sbin/iptables -> /usr/sbin/iptables
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/qrexec-client-vm

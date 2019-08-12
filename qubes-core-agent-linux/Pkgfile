@@ -17,13 +17,23 @@ build() {
 	make DESTDIR=$PKG -C qrexec install
 
 	make DESTDIR=$PKG install-init
-	make DESTDIR=$PKG install-common SYSLIBDIR=/lib LIBDIR=/usr/lib SBINDIR=/usr/sbin DIST=lfs
+	make DESTDIR=$PKG install-common SYSLIBDIR=/lib LIBDIR=/usr/lib SBINDIR=/usr/sbin DIST=crux
 	make DESTDIR=$PKG install-sysvinit SYSLIBDIR=/lib LIBDIR=/usr/lib SBINDIR=/usr/sbin
 	make DESTDIR=$PKG install-networking SYSLIBDIR=/lib LIBDIR=/usr/lib
 
+	# crux uses rc.d rather than init.d, but compatible scripts, lets symlink
+	mkdir -p $PKG/etc/rc.d
+	ln -s /usr/lib/qubes/init $PKG/etc/rc.d/init.d
+
+	# this arrangement is goofy, but we can ensure all scripts live together
 	mv $PKG/etc/qubes/rpc-config $PKG/etc/qubes/rpc-config.bak
 	ln -s ../qubes-rpc $PKG/etc/qubes/rpc-config
 
+	# crux scripts expect /sbin/iptables--lets symlink rather than patch
+	mkdir -p $PKG/sbin
+	ln -s /usr/sbin/iptables $PKG/sbin/iptables
+
+	# TODO: get dmroot in use, lets use a hardcoded xvda fstab in the meantime
 	sed -i 's#/dev/mapper/dmroot#/dev/xvda1#' $PKG/etc/fstab
 	mv $PKG/etc/fstab $PKG/etc/fstab.qubes
 	patch -Np0 -i $PKGMK_SOURCE_DIR/setup-ip.patch $PKG/usr/lib/qubes/setup-ip
