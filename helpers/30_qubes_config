@@ -15,6 +15,12 @@ fi
 # Enter chroot and run commands for qubes' configuration
 chroot /mnt /bin/bash -x <<EOF
 
+# install some default locales
+mkdir -p /usr/share/locale
+localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_US -f ISO-8859-1 en_US.ISO-8859-1
+localedef -i en_US -f UTF-8 en_US.UTF-8
+
 # install grub2
 grub-install /dev/xvda
 grub-mkconfig > /boot/grub/grub.cfg
