@@ -15,6 +15,7 @@ build() {
 	make DESTDIR=$PKG -C udev SYSLIBDIR=/lib SCRIPTSDIR=/usr/lib/qubes install
 	make DESTDIR=$PKG -C qrexec-lib LIBDIR=/usr/lib INCLUDEDIR=/usr/include install
 	make DESTDIR=$PKG -C qmemman install
+	make DESTDIR=$PKG -C dracut install
 	PYTHON=python3 make -C imgconverter all
 	PYTHON=python3 make -C imgconverter DESTDIR=$PKG install
 }

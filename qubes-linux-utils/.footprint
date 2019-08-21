@@ -10,6 +10,17 @@ drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/libqubes-rpc-filecopy.h
 -rw-r--r--	root/root	usr/include/qrexec.h
 drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/dracut/
+drwxr-xr-x	root/root	usr/lib/dracut/modules.d/
+drwxr-xr-x	root/root	usr/lib/dracut/modules.d/90qubes-vm-modules/
+-rwxr-xr-x	root/root	usr/lib/dracut/modules.d/90qubes-vm-modules/module-setup.sh
+-rwxr-xr-x	root/root	usr/lib/dracut/modules.d/90qubes-vm-modules/mount_modules.sh
+drwxr-xr-x	root/root	usr/lib/dracut/modules.d/90qubes-vm-simple/
+-rwxr-xr-x	root/root	usr/lib/dracut/modules.d/90qubes-vm-simple/init.sh
+-rwxr-xr-x	root/root	usr/lib/dracut/modules.d/90qubes-vm-simple/module-setup.sh
+drwxr-xr-x	root/root	usr/lib/dracut/modules.d/90qubes-vm/
+-rwxr-xr-x	root/root	usr/lib/dracut/modules.d/90qubes-vm/module-setup.sh
+-rwxr-xr-x	root/root	usr/lib/dracut/modules.d/90qubes-vm/qubes_cow_setup.sh
 lrwxrwxrwx	root/root	usr/lib/libqrexec-utils.so -> libqrexec-utils.so.2
 -rwxr-xr-x	root/root	usr/lib/libqrexec-utils.so.2
 lrwxrwxrwx	root/root	usr/lib/libqubes-rpc-filecopy.so -> libqubes-rpc-filecopy.so.2
