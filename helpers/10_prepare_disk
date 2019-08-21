@@ -14,7 +14,7 @@ for ATTEMPTS in 1 2 3; do
   umount --force /mnt/run 2>/dev/null
   umount --force /mnt/proc 2>/dev/null
 
-  umount /dev/xvda1 2>/dev/null
+  umount /dev/xvda3 2>/dev/null
 
   if [[ ${#err} -eq 8 ]]; then
     #echo "if length is 8, all mounts are unmounted"
@@ -29,11 +29,11 @@ fi
 
 # Programatically clear out partitions on xvda and replace it with
 # a single Linux partition that takes up the whole /dev/xvda blockdev
-echo 'type=83' | sfdisk /dev/xvda
+sfdisk /dev/xvda < xvda.part
 
 # Make the ext4 filesystem, confirm it non-interactively
-mkfs.ext4 /dev/xvda1 -F -F
+mkfs.ext4 /dev/xvda3 -F -F
 
 # Mount the newly created fs on the /mnt mount point, as crux prefers
-mount /dev/xvda1 /mnt
+mount /dev/xvda3 /mnt
 
