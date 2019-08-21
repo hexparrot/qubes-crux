@@ -3,7 +3,7 @@
 # Copy over the whole qubes-crux repository tree
 echo 'copying over helper scripts...'
 mkdir -p /mnt/usr/ports
-cp -R ../../qubes-crux /mnt/usr/ports/
+cp -R ../../qubes-crux* /mnt/usr/ports/qubes-crux
 
 # Create the crux pkgadd database (flatfile)
 mkdir -p /mnt/var/lib/pkg
