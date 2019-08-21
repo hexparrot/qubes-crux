@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Enter chroot and run commands for qubes' configuration
+chroot /mnt /bin/bash -x <<EOF
+
+echo 'nameserver 10.139.1.1' >> /etc/resolv.conf
+
+cd /usr/ports/qubes-crux/helpers
+/bin/bash /usr/ports/qubes-crux/helpers/qubes_build.sh
+
+dracut --force
+grub-mkconfig > /boot/grub/grub.cfg
+
+EOF
+
