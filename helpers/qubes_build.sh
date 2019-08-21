@@ -16,6 +16,7 @@ echo 'CRUX rolling release' > /etc/redhat-release
 
 # pip installations necessary for qubes-linux-utils
 ./pip_install.sh
+(cd /usr/ports/contrib/dracut; pkgmk -d -i)
 (cd /usr/ports/qubes-crux/qubes-linux-utils; pkgmk -d -i)
 
 # qcal + use new fstab
