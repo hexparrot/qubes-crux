@@ -1,0 +1,14 @@
+--- qubes_cow_setup.sh.orig	2019-08-21 20:25:43.856000000 +0000
++++ qubes_cow_setup.sh	2019-08-21 20:26:07.019000000 +0000
+@@ -41,11 +41,6 @@
+ 
+ info "Qubes initramfs script here:"
+ 
+-if ! grep -q 'root=[^ ]*dmroot' /proc/cmdline; then
+-    warn "dmroot not requested, probably not a Qubes VM"
+-    exit 0
+-fi
+-
+ if [ -e /dev/mapper/dmroot ] ; then 
+     die "Qubes: FATAL error: /dev/mapper/dmroot already exists?!"
+ fi

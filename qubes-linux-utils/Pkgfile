@@ -16,6 +16,7 @@ build() {
 	make DESTDIR=$PKG -C qrexec-lib LIBDIR=/usr/lib INCLUDEDIR=/usr/include install
 	make DESTDIR=$PKG -C qmemman install
 	make DESTDIR=$PKG -C dracut install
+	patch -Np0 -i $PKGMK_SOURCE_DIR/qubes_cow_setup.patch $PKG/usr/lib/dracut/modules.d/90qubes-vm/qubes_cow_setup.sh
 	PYTHON=python3 make -C imgconverter all
 	PYTHON=python3 make -C imgconverter DESTDIR=$PKG install
 }
