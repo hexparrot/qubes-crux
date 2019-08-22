@@ -13,14 +13,15 @@ The following features are currently implemented:
 Currently not working:
 
 * firewall rules from dom0
-* xvd* size changes
-* swap partition (xvdc)
-* /rw/config
+* /rw/config (e.g., rc.local)
 * qubes iptables service
 
-Working, but not yet documented:
+Still unstable, so not yet documented/part of build process:
 
 * PVH integration (use dom0 kernel, dom0 config)
+* xvd* size changes
+* swap partition (xvdc)
+(these are all part of the initramfs)
 
 
 INSTALLATION STEPS
@@ -28,19 +29,19 @@ INSTALLATION STEPS
 
 General idea:
 
-Create a file-based block device in dom0 and attach to a throwaway qube.
-From the throwaway, mount, then clone the `qubes-crux` repository to it.
-Download the CRUX ISO, and boot a new Qube from the ISO.
-Detach the mount from the throwaway, attach it now to the empty CRUX qube.
-Mount the block device to CRUX from the Live terminal prompt.
-Run the helper/crux_* scripts to install CRUX to your permanent system (xvda1).
-Reboot and enter the fresh CRUX installation, build the Qubes components.
-Reboot and enjoy a CRUX TemplateVM.
+1) Download the CRUX ISO, and boot a new Qube from the ISO.
+2) Get the internet working on the new qube, then download these helper scripts.
+3) Run the helpers scripts to install CRUX to your permanent system (xvda3),
+build a minimal kernel, and build all Qubes components.
+4) Reboot and test operation.
+5) Clone Standalone to TemplateVM, create AppVM.
+
+Ensure this Qube has enough memory to compile a kernel, e.g., 2048MB+ to be safe]
 
 Specifics:
 
-In VM 'crux'-
-[ensure this qube has enough memory to compile a kernel, e.g., 2048MB+ to be safe]
+In VM 'crux':
+
 # export IP=10.137.0.x
 # export GW=10.137.0.y
 # export DEV=eth0
@@ -62,3 +63,6 @@ In VM 'crux'-
 And you're done! It's a working qube, perfect for DispVMs or main use
 by installing additional software using CRUX' ports system. See prt-get.
 
+In dom0:
+
+$ qvm-clone --class TemplateVM crux crux_template
