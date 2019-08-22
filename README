@@ -39,36 +39,24 @@ Reboot and enjoy a CRUX TemplateVM.
 
 Specifics:
 
-In dom0-
-$ truncate --size 10MB /var/tmp/crux.img
-$ sudo losetup -f --show /var/tmp/crux.img
-/dev/loop1
-$ qvm-block | grep /var/tmp/crux.img | cut -d' ' -f1
-dom0:loop1
-$ sudo qvm-block attach throwaway dom0:loop1
-$ qvm-block | grep /var/tmp/crux.img | sed -rn 's#.*=(xvd.).*#\1#gp'
-xvdi
-
-In VM 'throwaway'-
-$ wget [crux-iso url]
-$ sudo mkfs.ext4 /dev/xvdi
-$ sudo mount /dev/xvdi /mnt/removable
-$ cd /mnt/removable
-$ git clone https://github.com/hexparrot/qubes-crux
-
-In dom0-
-$ sudo qvm-block detach throwaway dom0:loop1
-[Create a new standalone qube, boot from this ISO]
-$ sudo qvm-block attach crux dom0:loop1
-$ qvm-block | grep /var/tmp/crux.img | sed -rn 's#.*=(xvd.).*#\1#gp'
-xvdj
-
 In VM 'crux'-
-[ensure this qube has enough memory to compile a kernel, 2048MB+ at least]
-# mkdir /source
-# sudo mount /dev/xvdj /source
-# cd /source/qubes-crux/helpers
-# IP=10.137.0.x GW=10.137.0.y ./00_full_install
+[ensure this qube has enough memory to compile a kernel, e.g., 2048MB+ to be safe]
+# export IP=10.137.0.x
+# export GW=10.137.0.y
+# export DEV=eth0
+
+# ifconfig $DEV up
+# ip route add $GW dev $DEV
+# ip route add default via $GW
+# ip addr add $IP/32 dev $DEV
+# ip link set $DEV up
+
+# echo 'nameserver 10.139.1.1' >> /etc/resolv.conf
+
+# wget --no-check-certificate https://github.com/hexparrot/qubes-crux/tarball/master
+# tar -xf master
+# cd hexparrot*/helpers
+# ./00_full_install
 # reboot
 
 And you're done! It's a working qube, perfect for DispVMs or main use
