@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+./eth0_up.sh
+./10_prepare_disk
+./20_install_packages
+./30_qubes_config
+./40_build_kernel
+./50_qubes_build
+
