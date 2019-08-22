@@ -68,16 +68,7 @@ In VM 'crux'-
 # mkdir /source
 # sudo mount /dev/xvdj /source
 # cd /source/qubes-crux/helpers
-# ./10_prepare_disk
-# ./20_install_packages
-# ./30_qubes_config
-# ./40_build_kernel
-# reboot
-[restart qube without ISO, boot into CRUX as root]
-
-# cd /usr/ports/qubes-crux/helpers
-# IP=10.137.0.x GW=10.137.0.y ./eth0_up.sh
-# ./qubes_build.sh
+# IP=10.137.0.x GW=10.137.0.y ./00_full_install
 # reboot
 
 And you're done! It's a working qube, perfect for DispVMs or main use

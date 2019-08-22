@@ -1,0 +1,9 @@
+label: gpt
+device: /dev/xvda
+unit: sectors
+first-lba: 2048
+
+/dev/xvda1 : start=   2048, size=    409600, Id=1, name="EFI System"
+/dev/xvda2 : start= 411648, size=      4096, Id=4, name="BIOS boot partition"
+/dev/xvda3 : start= 415744,                        name="Root filesystem"
+

@@ -35,7 +35,7 @@ build() {
 	ln -s /usr/sbin/iptables $PKG/sbin/iptables
 
 	# TODO: get dmroot in use, lets use a hardcoded xvda fstab in the meantime
-	sed -i 's#/dev/mapper/dmroot#/dev/xvda1#' $PKG/etc/fstab
+	sed -i 's#/dev/mapper/dmroot#/dev/xvda3#' $PKG/etc/fstab
 	mv $PKG/etc/fstab $PKG/etc/fstab.qubes
 	patch -Np0 -i $PKGMK_SOURCE_DIR/setup-ip.patch $PKG/usr/lib/qubes/setup-ip
 }
