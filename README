@@ -9,6 +9,7 @@ The following features are currently implemented:
 * mounts private drive (xvdb)
 * working audio
 * ships with Firefox
+* HVM, PVH, PV
 
 Currently not working:
 
@@ -16,12 +17,9 @@ Currently not working:
 * /rw/config (e.g., rc.local)
 * qubes iptables service
 
-Still unstable, so not yet documented/part of build process:
-
-* PVH integration (use dom0 kernel, dom0 config)
 * xvd* size changes
 * swap partition (xvdc)
-(these are all part of the initramfs)
+(these are both part of the initramfs)
 
 
 INSTALLATION STEPS
@@ -66,3 +64,9 @@ by installing additional software using CRUX' ports system. See prt-get.
 In dom0:
 
 $ qvm-clone --class TemplateVM crux crux_template
+
+For using PV/PVH mode, in dom0:
+
+$ cd /var/lib/qubes/vm-kernels
+$ qvm-run -p crux 'cat /usr/ports/qubes-crux/helpers/kernel.tar.gz' | tar xzf -
+
