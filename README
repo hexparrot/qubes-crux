@@ -80,9 +80,6 @@ Be sure to read and review the scripts you are executing!
 in the helpers/ directory: everything from automating the partitioning of xvda
 to copying over system packages, to git-cloning & compiling qubes components.
 
-Difficulties with dracut inexplicably breaking Firefox is keeping this VM
-from having full support for xvdc (swap) and xvda resizing.
-
 CRUX requires a custom-built kernel by design at installation-time. 
 A minimal kernel config has been provided here under my authorship.
 It includes everything necessary for audio and video playback in Firefox,
@@ -107,7 +104,16 @@ a shortcut that'll handle mounting of the host /dev for you:
 
 # setup-chroot
 
-Lastly, CRUX uses the ports system, which is a source-based package manager.
+KNOWN ISSUES
+------------------------------------------
+
+Difficulties with dracut interfering with having full support for xvdc
+(swap) and xvda resizing.
+
+PACKAGING SYSTEM
+------------------------------------------
+
+CRUX uses the ports system, which is a source-based package manager.
 You can see all the qubes-related ports in this repo and all the commands
 used to easily reproduce packages for installation. See the CRUX handbook
 for more details.
