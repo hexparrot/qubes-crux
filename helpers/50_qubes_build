@@ -8,5 +8,9 @@ echo 'nameserver 10.139.1.1' >> /etc/resolv.conf
 cd /usr/ports/qubes-crux/helpers
 /bin/bash /usr/ports/qubes-crux/helpers/qubes_build.sh
 
+echo 'chmod 1777 /dev/shm' >> /etc/rc.local
+dracut --force
+grub-mkconfig > /boot/grub/grub.cfg
+
 EOF
 
