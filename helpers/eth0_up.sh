@@ -14,6 +14,12 @@ else
   
   ip addr add $IP/32 dev $DEV
   ip link set $DEV up
+
+  echo -n 'eth0 operational state: '
+  if ! cat /sys/class/net/eth0/operstate | grep up; then
+    echo 'eth0 did not come up, exiting'
+    exit 1
+  fi
 fi
 
 echo 'nameserver 10.139.1.1' >> /etc/resolv.conf
