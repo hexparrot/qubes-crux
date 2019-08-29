@@ -5,7 +5,8 @@ KERN_VERSION=$(uname -r)
 mkdir /tmp/$KERN_VERSION
 pushd /tmp/$KERN_VERSION
 
-: | gzip > initramfs
+#: | gzip > initramfs
+cp /boot/initramfs-$KERN_VERSION.img initramfs
 cp /boot/vmlinuz-$KERN_VERSION vmlinuz
 cp /boot/config-$KERN_VERSION .
 
@@ -14,4 +15,3 @@ popd
 
 tar -C /tmp -czf kernel.tar.gz $KERN_VERSION
 rm -rf /tmp/$KERN_VERSION
-
