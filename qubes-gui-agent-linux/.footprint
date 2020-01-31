@@ -1,6 +1,5 @@
 drwxr-xr-x	root/root	etc/
 drwxr-xr-x	root/root	etc/X11/
--rw-r--r--	root/root	etc/X11/Xwrapper.config
 drwxr-xr-x	root/root	etc/X11/xinit/
 drwxr-xr-x	root/root	etc/X11/xinit/xinitrc.d/
 -rwxr-xr-x	root/root	etc/X11/xinit/xinitrc.d/20qt-gnome-desktop-session-id.sh
@@ -8,8 +7,6 @@ drwxr-xr-x	root/root	etc/X11/xinit/xinitrc.d/
 -rwxr-xr-x	root/root	etc/X11/xinit/xinitrc.d/qubes-keymap.sh
 -rwxr-xr-x	root/root	etc/X11/xinit/xinitrc.d/z-qubes-session.sh
 -rw-r--r--	root/root	etc/X11/xorg-qubes.conf.template
-drwxr-xr-x	root/root	etc/init.d/
--rwxr-xr-x	root/root	etc/init.d/qubes-gui-agent
 drwxr-xr-x	root/root	etc/pam.d/
 -rw-r--r--	root/root	etc/pam.d/qubes-gui-agent
 drwxr-xr-x	root/root	etc/profile.d/
@@ -20,6 +17,8 @@ drwxr-xr-x	root/root	etc/pulse/
 -rw-r--r--	root/root	etc/pulse/qubes-default.pa
 drwxr-xr-x	root/root	etc/qubes-rpc/
 -rw-r--r--	root/root	etc/qubes-rpc/qubes.SetMonitorLayout
+drwxr-xr-x	root/root	etc/rc.d/
+-rwxr-xr-x	root/root	etc/rc.d/qubes-gui-agent
 drwxr-xr-x	root/root	etc/security/
 drwxr-xr-x	root/root	etc/security/limits.d/
 -rw-r--r--	root/root	etc/security/limits.d/90-qubes-gui.conf
@@ -53,9 +52,9 @@ drwxr-xr-x	root/root	usr/lib/modules-load.d/
 -rw-r--r--	root/root	usr/lib/modules-load.d/qubes-gui.conf
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/xorg-qubes.pc
-drwxr-xr-x	root/root	usr/lib/pulse-12.2/
-drwxr-xr-x	root/root	usr/lib/pulse-12.2/modules/
--rwxr-xr-x	root/root	usr/lib/pulse-12.2/modules/module-vchan-sink.so
+drwxr-xr-x	root/root	usr/lib/pulse-13.0/
+drwxr-xr-x	root/root	usr/lib/pulse-13.0/modules/
+-rwxr-xr-x	root/root	usr/lib/pulse-13.0/modules/module-vchan-sink.so
 drwxr-xr-x	root/root	usr/lib/qubes/
 -rwxr-xr-x	root/root	usr/lib/qubes/icon-sender
 drwxr-xr-x	root/root	usr/lib/sysctl.d/
