@@ -41,4 +41,5 @@ depmod -a
 mv /etc/rc.conf /etc/rc.conf.bak
 cp /etc/init.d/qubes-* /etc/rc.d/
 cp rc.conf /etc/rc.conf
+cp .Xdefaults /home/user/
 
