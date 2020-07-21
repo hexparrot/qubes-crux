@@ -11,6 +11,7 @@ cd /usr/ports/qubes-crux/helpers
 echo 'chmod 1777 /dev/shm' >> /etc/rc.local
 echo 'add_dracutmodules+="qubes-vm qubes-vm-simple qubes-vm-modules"' > /etc/dracut.conf.d/qubes.conf
 dracut --force
+/usr/ports/qubes-crux/helpers/package_dom0_kernel.sh
 grub-mkconfig > /boot/grub/grub.cfg
 
 EOF
