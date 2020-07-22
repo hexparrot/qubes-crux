@@ -1,3 +1,4 @@
+
 XTerm*background: #222222
 XTerm*foreground: #eeeeec
 XTerm*scrollBar: true
@@ -7,9 +8,13 @@ XTerm*faceName: Monospace Regular
 XTerm*faceSize: 10
 XTerm*renderFont: true
 XTerm*savelines: 10000
-Xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 XTerm*vt100*selectToClipboard: true
+
+! Here is a pattern that is useful for double-clicking on a URL:
+*charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
+*on2Clicks: regex [[:alpha:]]+://([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
 
 Xft.dpi: 96
 Xft.hintstyle: hintmedium
 Xft.hinting: true
+

@@ -30,6 +30,7 @@ cp /etc/fstab.qubes /etc/fstab
 # prereqs for qgal
 (cd /usr/ports/opt/libsndfile; pkgmk -d -i -if)
 (cd /usr/ports/opt/pulseaudio; pkgmk -d -i)
+(cd /usr/ports/contrib/libmnl; pkgmk -d -i)
 (cd /usr/ports/contrib/ethtool; pkgmk -d -i)
 (cd /usr/ports/qubes-crux/qubes-gui-agent-linux; pkgmk -d -i)
 

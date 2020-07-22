@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # Enter chroot and run commands for qubes' configuration
+# Dracut runs again because now u2mfn present
 chroot /mnt /bin/bash -x <<EOF
 
 echo 'nameserver 10.139.1.1' >> /etc/resolv.conf
@@ -8,8 +9,6 @@ echo 'nameserver 10.139.1.1' >> /etc/resolv.conf
 cd /usr/ports/qubes-crux/helpers
 /bin/bash /usr/ports/qubes-crux/helpers/qubes_build.sh
 
-echo 'chmod 1777 /dev/shm' >> /etc/rc.local
-echo 'add_dracutmodules+="qubes-vm qubes-vm-simple qubes-vm-modules"' > /etc/dracut.conf.d/qubes.conf
 dracut --force
 /usr/ports/qubes-crux/helpers/package_dom0_kernel.sh
 grub-mkconfig > /boot/grub/grub.cfg
