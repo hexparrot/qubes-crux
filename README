@@ -14,7 +14,6 @@ The following features are currently implemented:
 Currently not working:
 
 * firewall rules from dom0
-* qubes iptables service
 * automatically handle xvd* size changes
 
 
