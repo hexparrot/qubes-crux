@@ -2,18 +2,18 @@ USING CRUX AS A QUBES VIRTUAL MACHINE
 ------------------------------------------
 
 The current steps will help you install CRUX as a TemplateVM in Qubes.
-The following features are currently implemented:
+This is a fully-featured TemplateVM/StandaloneVM installation
+including but not limited to:
 
 * dom0 I/O and cross-vm copy-paste
 * qvm-* commands
-* mounts private drive (xvdb)
+* mounts private drive/swap (xvdb,xvdc)
 * working audio
 * ships with Firefox
 * HVM, PVH, PV
 
 Currently not working:
 
-* firewall rules from dom0
 * automatically handle xvd* size changes
 
 
@@ -25,12 +25,13 @@ General idea:
 1) Download the CRUX ISO, and boot a new Qube from the ISO.
 2) Get the internet working on the new qube, then download these helper scripts.
 3) Run the helpers scripts to install CRUX to your permanent system (xvda3),
-build a minimal kernel, and build all Qubes components.
+build an operable kernel, and build all Qubes components.
 4) Reboot and test operation.
 5) Clone Standalone to TemplateVM, create AppVM.
 
-Ensure this Qube has enough memory to compile a kernel, e.g., 2048MB.
-You can reduce the usage of the AppVM later.
+Ensure this Qube has enough memory to compile a kernel (minimum 2048MB).
+The initial kernel build relies on 2 vcpus (default for Create new qube).
+You can reduce the usage of the AppVM after installation.
 
 Specifics:
 
@@ -103,8 +104,7 @@ a shortcut that'll handle mounting of the host /dev for you:
 KNOWN ISSUES
 ------------------------------------------
 
-Difficulties with dracut interfering with having full support for xvdc
-(swap) and xvda resizing.
+xvda resizing does not occur due to no /dev/mapper/dmroot in use
 
 PACKAGING SYSTEM
 ------------------------------------------
