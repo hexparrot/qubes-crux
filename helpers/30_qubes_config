@@ -45,8 +45,5 @@ mkdir -p /etc/skel
 
 dbus-uuidgen --ensure=/etc/machine-id
 
-# disable crux' net config in favor of qubes'
-sed -i 's# net # #' /etc/rc.conf
-
 EOF
 
