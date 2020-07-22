@@ -4,10 +4,9 @@ XTerm*scrollBar: true
 XTerm*rightScrollBar: true
 XTerm*vt100*geometry: 88x24
 XTerm*faceName: Monospace Regular
-XTerm*faceSize: 11
+XTerm*faceSize: 10
 XTerm*renderFont: true
 XTerm*savelines: 10000
-XTerm*scrollTtyOutput: false
 Xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 XTerm*vt100*selectToClipboard: true
 
