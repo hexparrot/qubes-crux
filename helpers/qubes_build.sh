@@ -40,5 +40,4 @@ depmod -a
 # turn on all the services in rc.conf
 mv /etc/rc.conf /etc/rc.conf.bak
 cp /etc/init.d/qubes-* /etc/rc.d/
-cp rc.conf /etc/rc.conf
-
+cp -r dest/* /
