@@ -13,10 +13,6 @@ ports -u
 
 (cd /usr/ports/qubes-crux/qubes-core-vchan-xen; pkgmk -d -i)
 
-# prereqs for qubes' setup-ip
-(cd /usr/ports/contrib/libmnl; pkgmk -d -i)
-(cd /usr/ports/contrib/ethtool; pkgmk -d -i)
-
 # pip installations necessary for qubes-linux-utils
 ./pip_install.sh
 (cd /usr/ports/contrib/dracut; pkgmk -d -i)
@@ -33,6 +29,7 @@ cp /etc/fstab.qubes /etc/fstab
 # prereqs for qgal
 (cd /usr/ports/opt/libsndfile; pkgmk -d -i -if)
 (cd /usr/ports/opt/pulseaudio; pkgmk -d -i)
+(cd /usr/ports/contrib/libmnl; pkgmk -d -i)
 (cd /usr/ports/contrib/ethtool; pkgmk -d -i)
 (cd /usr/ports/qubes-crux/qubes-gui-agent-linux; pkgmk -d -i)
 
