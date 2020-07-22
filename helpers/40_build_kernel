@@ -25,7 +25,6 @@ fi
 
 cd /usr/ports/qubes-crux/helpers
 /bin/bash /usr/ports/qubes-crux/helpers/kernel_build.sh
-/bin/bash /usr/ports/qubes-crux/helpers/package_dom0_kernel.sh
 
 EOF
 
