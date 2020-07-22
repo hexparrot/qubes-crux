@@ -5,6 +5,7 @@ mv /etc/ports/contrib.rsync.inactive /etc/ports/contrib.rsync
 ports -u
 
 # install prereqs for xen
+echo 'CRUX rolling release' > /etc/redhat-release
 (cd /usr/ports/contrib/lsb-release; pkgmk -d -i)
 (cd /usr/ports/qubes-crux/bcc; pkgmk -d -i)
 (cd /usr/ports/contrib/iasl; pkgmk -d -i)
