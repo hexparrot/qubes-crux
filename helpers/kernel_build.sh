@@ -8,7 +8,7 @@ VERS=${nums%?}
 cd /usr/src/linux-${VERS}
 make clean
 make olddefconfig
-make
+make -j 2
 make modules
 make modules_install
 cp arch/x86_64/boot/bzImage /boot/vmlinuz-${VERS}
