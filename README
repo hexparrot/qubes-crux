@@ -14,11 +14,8 @@ The following features are currently implemented:
 Currently not working:
 
 * firewall rules from dom0
-* /rw/config (e.g., rc.local)
 * qubes iptables service
-
 * automatically handle xvd* size changes
-* swap partition (xvdc)
 
 
 INSTALLATION STEPS
