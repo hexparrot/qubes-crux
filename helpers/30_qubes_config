@@ -45,5 +45,8 @@ mkdir -p /etc/skel
 
 dbus-uuidgen --ensure=/etc/machine-id
 
+cp /usr/share/X11/app-defaults/XTerm /usr/share/X11/app-defaults/XTerm.bak
+cat /usr/ports/qubes-crux/helpers/.Xdefaults >> /usr/share/X11/app-defaults/XTerm
+
 EOF
 
