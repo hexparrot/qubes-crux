@@ -19,7 +19,4 @@ build() {
 	PYTHON=python3 make -C python
 	make DESTDIR=$PKG LIBDIR=/usr/lib BINDIR=/usr/bin SBINDIR=/usr/sbin install
 	PYTHON=python3 make -C python DESTDIR=$PKG LIBDIR=/usr/lib BINDIR=/usr/bin SBINDIR=/usr/sbin install
-
-	mkdir -p $PKG/etc/rc.d/
-	cp $PKGMK_SOURCE_DIR/qubes-qubesdb $PKG/etc/rc.d/qubes-qubesdb
 }
