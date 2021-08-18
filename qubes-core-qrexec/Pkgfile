@@ -1,0 +1,20 @@
+# Description: Qubes component: qubes-core-qrexec
+# URL: https://qubes-os.org
+# Maintainer: William Dizon, wdchromium at gmail dot com 
+# Depends on:
+
+name=qubes-core-qrexec
+version=4.1.15
+release=1
+source=(https://github.com/QubesOS/qubes-core-qrexec/archive/refs/tags/v${version}.tar.gz)
+
+build() {
+	export BACKEND_VMM=xen
+
+	cd $name-$version
+
+	make all-base
+	make all-vm
+	make DESTDIR=$PKG SYSLIBDIR=/usr/lib LIBDIR=/usr/lib BINDIR=/usr/bin install-base
+	make DESTDIR=$PKG SYSLIBDIR=/usr/lib LIBDIR=/usr/lib BINDIR=/usr/bin install-vm
+}
