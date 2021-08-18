@@ -4,10 +4,10 @@
 # Depends on: bcc iasl yajl
 
 name=qubes-vmm-xen
-version=R4.0
-xenversion=4.8.4
+version=4.14.2-1
+xenversion=4.14.2
 release=1
-source=(https://github.com/QubesOS/qubes-vmm-xen/archive/$version.tar.gz
+source=(https://github.com/QubesOS/qubes-vmm-xen/archive/refs/tags/v${version}.tar.gz
 	https://downloads.xenproject.org/release/xen/$xenversion/xen-$xenversion.tar.gz)
 
 build() {
@@ -15,7 +15,6 @@ build() {
 	# xen-4.8.4 should be a subdir to the qubes-vmm-xen dir
 
 	cd $name-$version/xen-$xenversion
-	patch -Np1 -i $PKGMK_SOURCE_DIR/qubes-xen.patch tools/libxc/xc_pm.c
 	/bin/bash ../apply-patches ../series-vm.conf ..
 	autoreconf
 	./configure --prefix=/usr \

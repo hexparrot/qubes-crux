@@ -4,17 +4,15 @@
 # Depends on: pandoc
 
 name=qubes-core-agent-linux
-version=R4.0.1
+version=4.1.26
 release=1
-source=(https://github.com/QubesOS/qubes-core-agent-linux/archive/$version.tar.gz)
+source=(https://github.com/QubesOS/qubes-core-agent-linux/archive/refs/tags/v${version}.tar.gz)
 
 build() {
 	cd $name-$version
 	export BACKEND_VMM=xen
 	make -C qubes-rpc
-	make -C qrexec
 	make -C misc
-	make DESTDIR=$PKG -C qrexec install
 
 	make DESTDIR=$PKG install-init
 	make DESTDIR=$PKG install-common SYSLIBDIR=/lib LIBDIR=/usr/lib SBINDIR=/usr/sbin DIST=crux
@@ -26,16 +24,7 @@ build() {
 	ln -s /usr/lib/qubes/init $PKG/etc/rc.d/init.d
 	cp $PKGMK_SOURCE_DIR/qubes-setup-ip $PKG/etc/rc.d/
 
-	# this arrangement is goofy, but we can ensure all scripts live together
-	mv $PKG/etc/qubes/rpc-config $PKG/etc/qubes/rpc-config.bak
-	ln -s ../qubes-rpc $PKG/etc/qubes/rpc-config
-
 	# crux scripts expect /sbin/iptables--lets symlink rather than patch
 	mkdir -p $PKG/sbin
 	ln -s /usr/sbin/iptables $PKG/sbin/iptables
-
-	# TODO: get dmroot in use, lets use a hardcoded xvda fstab in the meantime
-	sed -i 's#/dev/mapper/dmroot#/dev/xvda3#' $PKG/etc/fstab
-	mv $PKG/etc/fstab $PKG/etc/fstab.qubes
-	patch -Np0 -i $PKGMK_SOURCE_DIR/setup-ip.patch $PKG/usr/lib/qubes/setup-ip
 }

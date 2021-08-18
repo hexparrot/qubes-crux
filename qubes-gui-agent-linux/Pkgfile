@@ -4,30 +4,33 @@
 # Depends on: libsndfile pulseaudio
 
 name=qubes-gui-agent-linux
-version=4.0.27
+version=4.1.21
 release=1
-pa_ver=13.0
-last_pa_ver=12.2
-source=(https://github.com/QubesOS/qubes-gui-agent-linux/archive/v$version.tar.gz)
+pa_ver=14.2
+source=(https://github.com/QubesOS/qubes-gui-agent-linux/archive/refs/tags/v${version}.tar.gz)
 
 build() {
 	export BACKEND_VMM=xen
+	export PA_VER_FULL=${pa_ver}
 
 	cd $name-$version
 
-	cd xf86-video-dummy
-	./autogen.sh --prefix=/usr
-	make
-	make DESTDIR=$PKG install
+	cd xf86-qubes-common
+	make all
+
+	cd ../gui-common
+	make all
 
 	cd ../xf86-input-mfndev
 	./autogen.sh --prefix=/usr
 	make
 	make DESTDIR=$PKG install
 
-	cd ../pulse
-	ln -s pulsecore-$last_pa_ver pulsecore-$pa_ver
-	
+	cd ../xf86-video-dummy
+	./autogen.sh --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+
 	cd ..
 	unset CFLAGS
 	unset CXXFLAGS

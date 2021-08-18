@@ -1,31 +1,33 @@
---- db-daemon.c.orig	2019-07-31 15:15:37.929234086 -0700
-+++ db-daemon.c	2019-07-31 15:14:55.002234086 -0700
-@@ -28,8 +28,9 @@
-  * Archlinux also). But if someone needs no systemd in dependencies,
-  * it can be easily turned off, check the code in main() - conditions on
-  * getenv("NOTIFY_SOCKET").
-+   crux doesn't use systemd; removing this reference
-+   #include <systemd/sd-daemon.h>
-  */
+--- db-daemon.c	2021-07-10 03:13:14.000000000 +0000
++++ db-daemon.c.new	2021-08-18 07:29:42.929000000 +0000
+@@ -23,17 +23,11 @@
+ #include <vchan-common.h>
+ #endif
+ 
+-#ifndef WIN32
+-#ifdef HAVE_SYSTEMD
 -#include <systemd/sd-daemon.h>
- #else // !WIN32
+-#endif
+-#else // !WIN32
  // parameters for a client pipe thread
  struct thread_param {
-@@ -787,13 +788,10 @@
+     struct db_daemon_data *daemon;
+-    LONGLONG id;
++    long id;
+ };
+-#endif
+ 
+ #include <qubesdb.h>
+ #include "qubesdb_internal.h"
+@@ -805,11 +799,6 @@
  
      /* now ready for serving requests, notify parent */
      /* FIXME: OS dependent code */
+-#ifdef HAVE_SYSTEMD
 -    if (getenv("NOTIFY_SOCKET")) {
 -        sd_notify(1, "READY=1");
--    } else {
--        if (write(ready_pipe[1], "ready", strlen("ready")) != strlen("ready"))
--            perror("failed to notify parent");
--        close(ready_pipe[1]);
--    }
-+    /* Removing notify_socket decision path */
-+    if (write(ready_pipe[1], "ready", strlen("ready")) != strlen("ready"))
-+        perror("failed to notify parent");
-+    close(ready_pipe[1]);
- 
-     create_pidfile(&d);
- 
+-    } else
+-#endif /* HAVE_SYSTEMD */
+     {
+         if (write(ready_pipe[1], "ready", strlen("ready")) != strlen("ready"))
+             perror("failed to notify parent");

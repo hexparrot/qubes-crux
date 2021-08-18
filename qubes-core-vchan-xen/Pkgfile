@@ -4,18 +4,12 @@
 # Depends on:
 
 name=qubes-core-vchan-xen
-version=4.0.2
+version=4.1.7
 release=1
-source=(https://github.com/QubesOS/qubes-core-vchan-xen/archive/v$version.tar.gz)
+source=(https://github.com/QubesOS/qubes-core-vchan-xen/archive/refs/tags/v${version}.tar.gz)
 
 build() {
 	cd $name-$version
-	(cd u2mfn; make)
-	(cd vchan; make -f Makefile.linux)
-	install -D -m 0644 vchan/libvchan.h $PKG/usr/include/libvchan.h
-	install -D -m 0644 u2mfn/u2mfnlib.h $PKG/usr/include/u2mfnlib.h
-	install -D -m 0644 u2mfn/u2mfn-kernel.h $PKG/usr/include/u2mfn-kernel.h
-	install -D -m 0644 vchan/vchan-xen.pc $PKG/usr/lib/pkgconfig/vchan-xen.pc
-	install -D vchan/libvchan-xen.so $PKG/usr/lib/libvchan-xen.so
-	install -D u2mfn/libu2mfn.so $PKG/usr/lib/libu2mfn.so
+	make all
+	make DESTDIR=$PKG install
 }

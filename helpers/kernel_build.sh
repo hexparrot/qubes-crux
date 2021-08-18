@@ -18,12 +18,5 @@ make INSTALL_HDR_PATH=dest headers_install
 find dest/include \( -name .install -o -name ..install.cmd \) -delete
 cp -rv dest/include/* /usr/include
 
-# ensure this occurs, no matter what the current installed state is
-(cd /usr/ports/qubes-crux/u2mfn; pkgmk -f -d -i -u)
-depmod -a
-
-# create the initramfs ensuring u2mfn inclusion
-dracut --force
-
 grub-mkconfig > /boot/grub/grub.cfg
 

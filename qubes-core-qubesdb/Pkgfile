@@ -4,9 +4,9 @@
 # Depends on:
 
 name=qubes-core-qubesdb
-version=R4.0.1
+version=4.1.11
 release=1
-source=(https://github.com/QubesOS/qubes-core-qubesdb/archive/$version.tar.gz)
+source=(https://github.com/QubesOS/qubes-core-qubesdb/archive/refs/tags/v${version}.tar.gz)
 
 build() {
 	export BACKEND_VMM=xen

@@ -4,9 +4,9 @@
 # Depends on:
 
 name=qubes-linux-utils
-version=R4.0
+version=4.1.15
 release=1
-source=(https://github.com/QubesOS/qubes-linux-utils/archive/$version.tar.gz)
+source=(https://github.com/QubesOS/qubes-linux-utils/archive/v$version.tar.gz)
 
 build() {
 	cd $name-$version
