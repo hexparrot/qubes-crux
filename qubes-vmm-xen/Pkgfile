@@ -8,11 +8,11 @@ version=4.14.2-1
 xenversion=4.14.2
 release=1
 source=(https://github.com/QubesOS/qubes-vmm-xen/archive/refs/tags/v${version}.tar.gz
-	https://downloads.xenproject.org/release/xen/$xenversion/xen-$xenversion.tar.gz)
+	https://downloads.xenproject.org/release/xen/$xenversion/xen-${xenversion}.tar.gz)
 
 build() {
+	# xen-x.y.z should be a subdir to the qubes-vmm-xen dir
 	mv xen-$xenversion $name-$version
-	# xen-4.8.4 should be a subdir to the qubes-vmm-xen dir
 
 	cd $name-$version/xen-$xenversion
 	/bin/bash ../apply-patches ../series-vm.conf ..
