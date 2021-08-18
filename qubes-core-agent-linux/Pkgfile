@@ -11,20 +11,9 @@ source=(https://github.com/QubesOS/qubes-core-agent-linux/archive/refs/tags/v${v
 build() {
 	cd $name-$version
 	export BACKEND_VMM=xen
-	make -C qubes-rpc
-	make -C misc
 
-	make DESTDIR=$PKG install-init
-	make DESTDIR=$PKG install-common SYSLIBDIR=/lib LIBDIR=/usr/lib SBINDIR=/usr/sbin DIST=crux
-	make DESTDIR=$PKG install-sysvinit SYSLIBDIR=/lib LIBDIR=/usr/lib SBINDIR=/usr/sbin
-	make DESTDIR=$PKG install-networking SYSLIBDIR=/lib LIBDIR=/usr/lib
-
-	# crux uses rc.d rather than init.d, but compatible scripts, lets symlink
-	mkdir -p $PKG/etc/rc.d
-	ln -s /usr/lib/qubes/init $PKG/etc/rc.d/init.d
-	cp $PKGMK_SOURCE_DIR/qubes-setup-ip $PKG/etc/rc.d/
-
-	# crux scripts expect /sbin/iptables--lets symlink rather than patch
-	mkdir -p $PKG/sbin
-	ln -s /usr/sbin/iptables $PKG/sbin/iptables
+	make DESTDIR=$PKG all
+	make DESTDIR=$PKG install-vm
+	make DESTDIR=$PKG -C qubes-rpc all
+	make DESTDIR=$PKG -C qubes-rpc install
 }
